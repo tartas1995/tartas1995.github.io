@@ -1,0 +1,41 @@
+{
+  "name": "tartas1995.github.io",
+  "version": "1.0.0",
+  "description": "The goal of this project is to build a site that is rendered based on Markdown files. The current plan is to build it using react. It is a fun project.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack",
+    "watch": "npx webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tartas1995/tartas1995.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tartas1995/tartas1995.github.io/issues"
+  },
+  "homepage": "https://github.com/tartas1995/tartas1995.github.io#readme",
+  "dependencies": {
+    "css-loader": "^6.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^7.0.1",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
+    "style-loader": "^3.3.0",
+    "typescript": "^4.4.3",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-redux": "^7.1.19",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.6"
+  }
+}
