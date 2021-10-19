@@ -1,0 +1,11 @@
+.ListItem {
+    margin: 10px;
+    width: 400px;
+    background-color: rgba($color: #222121, $alpha: 5.0);
+    cursor: pointer;
+    &:hover {
+        h1 {
+            text-decoration: underline;
+        }
+    }
+}

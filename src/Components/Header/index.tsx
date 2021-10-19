@@ -11,7 +11,7 @@ const Header: React.FC<Props> = ({}) => {
         <h1>Tartas1995</h1>
         <ul>
             <li>
-                <a href="https://github.com/tartas1995" target="_blank">
+                <a href="https://github.com/tartas1995"  rel="noreferrer" target="_blank">
                     <img src="./assets/image/github.png" />
                 </a>
             </li>

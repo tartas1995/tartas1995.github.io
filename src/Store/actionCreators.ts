@@ -29,3 +29,13 @@ export function addPostList(post: Post) {
         dispatch(action)
     }
 }
+
+export function setPostList(list: List) {
+    const action: ListAction = {
+        type: actionTypes.SET_POST_LIST,
+        list
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}

@@ -1,21 +1,28 @@
 interface Post {
-    file: string
+    folder: string
     title: string
-    body: string
+    description: string
+    body?: string
+    imgPath?: string
   }
 
-  interface List {
-    posts: Post[]
-  }
+  type List = Post[]
   
-  type State = {
-    post: Post,
+  interface State {
+    post: Post
     list: List
   }
-  
-  type PostAction = {
+
+  interface Action {
     type: string
+  }
+  
+  interface ListAction extends Action {
+    list: List
+  }
+
+  interface PostAction extends Action {
     post: Post
   }
   
-  type DispatchType = (args: PostAction) => PostAction
+  type DispatchType = (args: Action) => Action

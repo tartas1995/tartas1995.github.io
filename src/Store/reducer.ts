@@ -2,19 +2,19 @@ import * as actionTypes from './actionTypes';
 
 const initialState: State = {
     post: null,
-    list: {
-        posts: []
-    }
+    list: []
 }
 
 const reducer = (
     state: State = initialState, 
-    action: PostAction): State => {
+    action: Action): State => {
+        const paction = action as PostAction;
+        const laction = action as ListAction;
         switch (action.type) {
             case actionTypes.OPEN_POST:
                 return {
                     ...state,
-                    post: action.post
+                    post: paction.post
                 }
                 break;
             case actionTypes.CLOSE_POST:
@@ -24,11 +24,10 @@ const reducer = (
                 }
                 break;
             case actionTypes.ADD_POST_LIST:
-                const copy = { ...state };
-                const posts = copy.list.posts;
-                posts.push(action.post);
-                copy.list.posts = posts;
-                return copy;
+                return { ...state, list:[...state.list, paction.post] };
+                break;
+            case actionTypes.SET_POST_LIST:
+                return { ...state, list:[...laction.list] };
                 break;
         }
         return state
