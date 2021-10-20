@@ -7,7 +7,7 @@ import reducer from "./reducer";
 const store: Store<State, Action> & {
     dispatch: DispatchType
 } = createStore(reducer,{
-    post: null,
+    opened: null,
     list: []
 }, composeWithDevTools(
     applyMiddleware(thunk))

@@ -1,19 +1,33 @@
 import * as React from 'react';
 import "./style.scss";
 import ReactMarkdown from 'react-markdown';
+import { useDispatch, useSelector } from "react-redux"
+import { closePost, updatePost } from '../../Store/actionCreators';
+import loadPost from '../../handler/loadPost';
 
 type Props = {
-    post: Post
+    index: number
 }
 
-const PostComponent: React.FC<Props> = ({ post }: Props) => {
+const PostComponent: React.FC<Props> = ({ index }: Props) => {
+    const dispatch = useDispatch()
+    const onClick = () => {
+        closePost()(dispatch)
+    }
+    const post = useSelector((state: State) => state.list[index])
+    React.useEffect(() => {
+        loadPost(post).then((post: Post) => {
+            updatePost(index, post)(dispatch)
+        })
+    },[])
     return (
-        <div className="post">
-            <ReactMarkdown>
-            # This is just a Template
-            
-            this is just a template to work on MD interpreter
-            </ReactMarkdown>
+        <div className="wrapper">
+            <div className="close" onClick={onClick}></div>
+            <div className="post">
+                <ReactMarkdown>
+                    {post.body}
+                </ReactMarkdown>
+            </div>
         </div>
     )
 }

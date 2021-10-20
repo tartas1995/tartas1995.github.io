@@ -10,12 +10,12 @@ type Props = {
 }
 
 const Main: React.FC<Props> = () => {
-  const post = useSelector((state: State) => state.post)
+  const postIndex = useSelector((state: State) => state.opened)
   return (
     <div className="Main">
       <Header></Header>
       <List></List>
-      { post !== null ? <Post post={post}></Post> : '' }
+      { postIndex !== null ? <Post index={postIndex}></Post> : '' }
     </div>
   )
 }

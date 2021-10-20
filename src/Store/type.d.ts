@@ -9,20 +9,15 @@ interface Post {
   type List = Post[]
   
   interface State {
-    post: Post
+    opened: number
     list: List
   }
 
   interface Action {
     type: string
-  }
-  
-  interface ListAction extends Action {
-    list: List
-  }
-
-  interface PostAction extends Action {
-    post: Post
+    list?: List
+    post?: Post
+    index?: number
   }
   
   type DispatchType = (args: Action) => Action

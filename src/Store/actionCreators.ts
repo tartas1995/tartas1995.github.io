@@ -1,9 +1,9 @@
 import * as actionTypes from './actionTypes';
 
-export function openPost(post: Post) {
-    const action: PostAction = {
+export function openPost(index: number) {
+    const action: Action = {
         type: actionTypes.OPEN_POST,
-        post
+        index
     }
     return (dispatch: DispatchType) => {
         dispatch(action)
@@ -11,9 +11,20 @@ export function openPost(post: Post) {
 }
 
 export function closePost() {
-    const action: PostAction = {
+    const action: Action = {
         type: actionTypes.CLOSE_POST,
-        post: null
+        index: null
+    }
+    return (dispatch: DispatchType) => {
+        dispatch(action)
+    }
+}
+
+export function updatePost(index:number, post: Post) {
+    const action: Action = {
+        type: actionTypes.UPDATE_POST,
+        post,
+        index
     }
     return (dispatch: DispatchType) => {
         dispatch(action)
@@ -21,7 +32,7 @@ export function closePost() {
 }
 
 export function addPostList(post: Post) {
-    const action: PostAction = {
+    const action: Action = {
         type: actionTypes.ADD_POST_LIST,
         post
     }
@@ -31,7 +42,7 @@ export function addPostList(post: Post) {
 }
 
 export function setPostList(list: List) {
-    const action: ListAction = {
+    const action: Action = {
         type: actionTypes.SET_POST_LIST,
         list
     }

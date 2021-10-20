@@ -2,7 +2,7 @@ import * as React from 'react';
 import "./style.scss";
 import { setPostList } from '../../Store/actionCreators';
 import loadPostList from '../../handler/loadPostList';
-import { useDispatch, useSelector, connect } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import ListItemComponent from '../ListItem'
 
@@ -21,7 +21,7 @@ const ListComponent: React.FC<Props> = () => {
   return (
     <div className="List">
       { list !== null ? list.map((post: Post, index: number) =>
-        <ListItemComponent key={index} post={post} />) : '' }
+        <ListItemComponent key={index} index={index} post={post} />) : '' }
     </div>
   )
 }

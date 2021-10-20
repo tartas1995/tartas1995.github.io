@@ -1,4 +1,5 @@
 export const OPEN_POST = "OPEN_POST"
 export const CLOSE_POST = "CLOSE_POST"
+export const UPDATE_POST = "UPDATE_POST"
 export const ADD_POST_LIST = "ADD_POST_LIST"
 export const SET_POST_LIST = "SET_POST_LIST"

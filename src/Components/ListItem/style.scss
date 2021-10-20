@@ -1,8 +1,17 @@
 .ListItem {
     margin: 10px;
     width: 400px;
-    background-color: rgba($color: #222121, $alpha: 5.0);
+    background-color: rgba($color: #2a2e36, $alpha: 5.0);
+    border-radius: 5%;
     cursor: pointer;
+    padding: 10px;
+    color: white;
+    .img {
+        height: 100px;
+        width: 400px;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
     &:hover {
         h1 {
             text-decoration: underline;

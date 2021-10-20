@@ -5,16 +5,20 @@ import { openPost } from '../../Store/actionCreators';
 
 type Props = {
     post: Post
+    index: number
 }
 
-const ListItemComponent: React.FC<Props> = ({ post }: Props) => {
+const ListItemComponent: React.FC<Props> = ({ post, index }: Props) => {
     const dispatch = useDispatch()
     const onClick = () => {
-        openPost(post)(dispatch)
+        openPost(index)(dispatch)
+    }
+    const getImage = (post: Post) => {
+        return `Posts/${post.folder}/${post.imgPath}`
     }
     return (
         <div className="ListItem" onClick={onClick}>
-            { post.imgPath !== null ? <img src={post.imgPath}/> : ''}
+            { post.imgPath !== null ? <div className="img" style={ {backgroundImage: `url(${getImage(post)})` }}/> : ''}
             <h1>{post.title}</h1>
             <p>{post.description}</p>
         </div>

@@ -1,33 +1,36 @@
 import * as actionTypes from './actionTypes';
 
 const initialState: State = {
-    post: null,
+    opened: null,
     list: []
 }
 
 const reducer = (
     state: State = initialState, 
     action: Action): State => {
-        const paction = action as PostAction;
-        const laction = action as ListAction;
+        let temp = null;
         switch (action.type) {
             case actionTypes.OPEN_POST:
                 return {
                     ...state,
-                    post: paction.post
+                    opened: action.index
                 }
                 break;
             case actionTypes.CLOSE_POST:
                 return {
                     ...state,
-                    post: null
+                    opened: null
                 }
                 break;
+            case actionTypes.UPDATE_POST:
+                temp = state.list;
+                temp[action.index] = action.post;
+                return { ...state, list: [...temp]}
             case actionTypes.ADD_POST_LIST:
-                return { ...state, list:[...state.list, paction.post] };
+                return { ...state, list:[...state.list, action.post] };
                 break;
             case actionTypes.SET_POST_LIST:
-                return { ...state, list:[...laction.list] };
+                return { ...state, list:[...action.list] };
                 break;
         }
         return state
