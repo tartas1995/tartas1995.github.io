@@ -3,8 +3,7 @@ const loadPost = (post: Post) => {
         fetch(`./Posts/${post.folder}/index.md`)
             .then((res) =>res.text())
             .then((text) => {
-                post.body = text;
-                resolve(post)
+                resolve({...post, body: text})
             })
             .catch((e) => {
                 reject(e)
