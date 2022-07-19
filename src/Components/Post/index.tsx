@@ -23,9 +23,11 @@ const PostComponent: React.FC<Props> = ({ index }: Props) => {
     }
     const post = useSelector((state: State) => state.list[index],compare)
     React.useEffect(() => {
-        loadPost(post).then((post: Post) => {
-            updatePost(index, post)(dispatch)
-        })
+        if (post.body === null) {
+            loadPost(post).then((post: Post) => {
+                updatePost(index, post)(dispatch)
+            })
+        }
     },[])
     return (
         <div className="wrapper">

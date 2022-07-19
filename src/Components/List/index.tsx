@@ -13,15 +13,19 @@ type Props = {
 const ListComponent: React.FC<Props> = () => {
   const dispatch = useDispatch()
   const list = useSelector((state: State) => state.list)
+
   React.useEffect(() => {
     loadPostList().then((list: List) => {
       setPostList(list)(dispatch)
     })
   },[])
+  const componentList = []
+  for (let i = list.length -1 ; i >= 0; i--) {
+    componentList.push(<ListItemComponent key={i} index={i} post={list[i]} />)
+  }
   return (
     <div className="List">
-      { list !== null ? list.map((post: Post, index: number) =>
-        <ListItemComponent key={index} index={index} post={post} />) : '' }
+      { list !== null ? componentList : '' }
     </div>
   )
 }

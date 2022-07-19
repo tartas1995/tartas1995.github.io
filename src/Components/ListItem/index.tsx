@@ -18,7 +18,7 @@ const ListItemComponent: React.FC<Props> = ({ post, index }: Props) => {
     }
     return (
         <div className="ListItem" onClick={onClick}>
-            { post.imgPath !== null ? <div className="img" style={ {backgroundImage: `url(${getImage(post)})` }}/> : ''}
+            { post.imgPath !== null && post.imgPath !== undefined ? <div className="img" style={ {backgroundImage: `url(${getImage(post)})` }}/> : ''}
             <h1>{post.title}</h1>
             <p>{post.description}</p>
         </div>

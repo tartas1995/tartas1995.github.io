@@ -4,5 +4,11 @@
         "description": "This is a Proof of Concept Post",
         "folder": "proof_of_concept",
         "imgPath": "500x150.png"
+    },
+    {
+        "title":"Conway's Game of Life",
+        "description": "About my Implementation of Conway's Game of Life, that I wrote using mainly JavaScript without any libraries.",
+        "folder": "conway_s_game_of_life"
     }
+
 ]
